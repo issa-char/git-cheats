@@ -22,6 +22,13 @@ It is used for:
     ``bash
     git --version
     ```
+# step ONE 
+## create a github repo
+1. head over to github and set an account
+2. login and create a new repository with (follow the listed instructions that suits your needs)
+3. go to setting and set-up tokenized authentication and save the token locally
+4. copy the repo link you've just created
+
 # step two
 ## configure git
 after successful installation, we need to configure git to know who you are.
@@ -48,6 +55,7 @@ mkdir creates your directory while cd changes into the directory
 ## initialize git on the project directory
 ```bash
     git init
+    git remote add origin <the_url_to_your_github_repo> # specifies that you are adding a remote repo(url) as an origin to your local repo.
 ```
 your successfully created your first git repo, congratulations!
 git creates a directory (.git) to keep track of all changes made in that directory.
@@ -81,6 +89,13 @@ $ git commit -m "your commmit message" # commit your tracked files/changes
 $ git commit -a -m "your commit message"  # an alternative to skip the 'track/add' stage
 $ git status --short    # check on repo state in a more compact way
 ```
+# step SEVEN
+## pushing your changes to github
+this will publish our repo on github
+```bash
+git push --set-upstream origin master/main
+```
+log into github and see that the repo as been uploaded
 
 ## commit log
 commit log are the history of your commits for the repo
@@ -88,11 +103,35 @@ commit log are the history of your commits for the repo
 $ git log   # view your commit logs
 ```
 # step SEVEN
-## gettng help
+## getting help
 if you ever get stack on a command or need to know some git options use the following help command
 ```bash
 $ git {command} -help   # see all the available options for the specific command
 $ git help --all    # see all possible commands
 ```
+
+# step EIGHT
+## git pull from github
+git push is to publish to github while `git pull` is to get the upstream changes to your local copy; sync github repo copy to your local copy, that is if you made changes to the upstream copy and not locally.
+
+```bash
+git pull origin
+```
+### git pull but longer/detailed
+1. fetch updates from repo
+```bash
+git fetch origin
+```
+2. check status to see what if we behind or ahead of github repo
+3. verify by checking the updated logs
+```bash
+git log origin/master
+git diff origin/master  # shows the difference between the upstream repo and local repo
+```
+4. merge local branch with origin/master(upstream)
+```bash
+git merge origin/master # updates your local repo to reflect the upstream repo
+```
+now your local repo is up to date.
 
 

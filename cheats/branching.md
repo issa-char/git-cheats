@@ -26,26 +26,16 @@ git checkout -b branch_name     # move into the branch if it does not exist crea
 ```
 after working on files in the different branches stage and commit.
 
-# git branch merge
-merging is the joining of a branch to the main branch
-to do so first move into the main/master branch
+## git pull branch from github
+if their exist a remote branch(github) 
 ```bash
-git checkout main
-```
-2. now merge the main branch with your branch_name
-```bash
-git merge branch_name
-```
-3. if no-conflict error delete the branch
-```bash
-git branch -d branch_name
-```
-NB: if the new branch came direclty from main and no changes had been made to main while working on the new branch no conflicts will occur, else we need to find the files causing the conflict and fix them.
-
-## in-case of conflict during merge
-```bash
-git status      # check the main repo status and look for the files causing conflict
-git commit -m "commit message after fixing conflict"    # concludes the merge
-git branch -d branch_name   # delete the branch as it is of no use after merging to main
+git branch -a   # checkout the branches available both locally and remote
+git branch -r   # check to see the remote branches available on remote repo
+git checkout remote_branch  # change to the remote branch 
+git pull    # check/pull updates
+git branch  # check to see if remote repo added to branch
 ```
 
+## git push branch to github
+```bash
+git push origin branch_name
